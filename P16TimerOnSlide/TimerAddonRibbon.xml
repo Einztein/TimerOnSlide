@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<customUI xmlns="http://schemas.microsoft.com/office/2009/07/customui" onLoad="Ribbon_Load">
+  <ribbon>
+    <tabs>
+      <tab idMso="TabAddIns">
+        <group id="grpTimerAddon"
+               label="PPT Timer">
+            <button id='btnInsert'
+                  label='Insert Show'
+                  size='large'
+                  imageMso='HappyFace'
+                  onAction='OnInsertOverlay'
+                  screentip='Insert clock into this slide'
+                  supertip='Ctrl+Alt+Shift+I'/>
+
+            <button id='btnSetCountdown'
+                    label='Set Countdown'
+                    size='large'
+                    imageMso='PivotTableFieldSettings'
+                    onAction='OnSetCountdown'/>
+
+            <button id='btnCountUp'
+                    label='Stopwatch'
+                    imageMso='StartAfterPrevious'
+                    onAction='CDAudioStopTime'
+                    supertip='Ctrl+Alt+Shift+U'/>
+
+            <button id='btnCountDown'
+                    label='Countdown'
+                    imageMso='PauseTimer'
+                    onAction='OnCountDown'
+                    supertip='Ctrl+Alt+Shift+D'/>
+
+            <button id='btnStartPause'
+                    label='Start Pause'
+                    size='large'
+                    imageMso='StartTimer'
+                    onAction='OnStartPause'
+                    supertip='Ctrl+Alt+Shift+S'/>
+
+            <button id='btnReset'
+                    label='Reset'
+                    imageMso='Refresh'
+                    onAction='OnReset'
+                    supertip='Ctrl+Alt+Shift+R'/>
+        </group>
+      </tab>
+    </tabs>
+  </ribbon>
+</customUI>
+

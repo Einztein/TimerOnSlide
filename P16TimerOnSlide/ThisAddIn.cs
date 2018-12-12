@@ -6,16 +6,26 @@ using System.Xml.Linq;
 using PowerPoint = Microsoft.Office.Interop.PowerPoint;
 using Office = Microsoft.Office.Core;
 
+
 namespace P16TimerOnSlide
 {
     public partial class ThisAddIn
     {
+        public TimerOverlayController Controller { get; private set; }
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            Controller = new TimerOverlayController(this.Application);
+            Controller.Initialize();
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
         {
+            Controller?.Dispose();
+        }
+
+        protected override Office.IRibbonExtensibility CreateRibbonExtensibilityObject()
+        {
+            return new TimerAddonRibbon();
         }
 
         #region VSTO 生成的代码
@@ -29,7 +39,7 @@ namespace P16TimerOnSlide
             this.Startup += new System.EventHandler(ThisAddIn_Startup);
             this.Shutdown += new System.EventHandler(ThisAddIn_Shutdown);
         }
-        
+
         #endregion
     }
 }
